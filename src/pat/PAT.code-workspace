@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"name": "grades",
+			"path": "../../../grades"
+		},
+		{
+			"name": "asignment",
+			"path": "../../../asignment"
+		}
+	],
+	"settings": {}
+}
