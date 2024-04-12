@@ -37,14 +37,22 @@ public class RootSuite {
             login log = new login();
         
     }
+    @Test
     public void testLogin(){
         login log = new login();
+        
         assertFalse(log.loginUser("kyleeeee","password"));
+        
         assertTrue(log.loginUser("kyl_1", "Ch&&sec@ke99!"));
+        
         assertTrue(log.checkUsername("kyl_1"));
+        
         assertFalse(log.checkUsername("kyle!!!!!"));
+        
         assertTrue(log.checkPasswordComplexity("Ch&&sec@ke99!"));
+        
         assertFalse(log.checkPasswordComplexity("password"));
+        
     }
 
     @After
