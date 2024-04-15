@@ -48,6 +48,8 @@ public class login {
                     password = data[1];
                     firstname = data[2];
                     lastname = data[3];
+                    int a,b, c=3;
+                    
                     break;
                 } else {
                     userFound = false;
