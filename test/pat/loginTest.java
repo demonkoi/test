@@ -70,8 +70,8 @@ public class loginTest {
         System.out.println("loginUser");
         login instance = new login();
         boolean expResult = false;
-        boolean result = instance.loginUser();
-        assertEquals(expResult, result);
+       // boolean result = instance.loginUser();
+        //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

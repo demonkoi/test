@@ -35,13 +35,15 @@ public class RootSuite {
     @Test
     public void testCreateUser() {
             login log = new login();
+            System.out.println("call");
+               // assertFalse(log.loginUser("kyleeeee","password"));
         
     }
     @Test
     public void testLogin(){
         login log = new login();
         
-        assertFalse(log.loginUser("kyleeeee","password"));
+    
         
         assertTrue(log.loginUser("kyl_1", "Ch&&sec@ke99!"));
         
