@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="LAPTOP-NK9PUETT" name="pat.PATTest" skipped="0" tests="1" time="0.358" timestamp="2024-04-15T15:06:34">
+<testsuite errors="1" failures="0" hostname="LAPTOP-NK9PUETT" name="pat.PATTest" skipped="0" tests="1" time="0.114" timestamp="2024-04-15T19:12:39">
   <properties>
     <property name="libs.spring-framework300.classpath" value="C:\Program Files\NetBeans-21\netbeans\platform\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-aop-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-aspects-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-beans-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-context-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-context-support-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-core-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-expression-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-instrument-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-jdbc-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-jms-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-orm-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-oxm-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-struts-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-test-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-tx-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-web-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-webmvc-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.18.RELEASE.jar" />
     <property name="javac.test.classpath" value=":build/classes:C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\junit-jupiter-api-5.6.0.jar;C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\junit-jupiter-params-5.6.0.jar;C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\junit-jupiter-engine-5.6.0.jar:C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\junit-4.13.2.jar:C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\hamcrest-core-1.3.jar" />
@@ -17,7 +17,7 @@
     <property name="libs.jsp-compilation.src" value="" />
     <property name="libs.JWSAntTasks.javadoc" value="" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner pat.PATTest methods=everything skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\projects\PAT\build\test\results\TEST-pat.PATTest.xml crashfile=C:\projects\PAT\build\junitvmwatcher1432101885138301355.properties propsfile=C:\projects\PAT\build\junit13197768274791763552.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner pat.PATTest methods=checkLogin skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\projects\PAT\build\test\results\TEST-pat.PATTest.xml crashfile=C:\projects\PAT\build\junitvmwatcher18292993691811896158.properties propsfile=C:\projects\PAT\build\junit8650195295849345781.properties" />
     <property name="jdk.debug" value="release" />
     <property name="libs.spring-framework300.src" value="" />
     <property name="javadoc.use" value="true" />
@@ -197,7 +197,7 @@
     <property name="libs.jsp-compilation-syscp.classpath" value="C:\Program Files\NetBeans-21\netbeans\extide\ant\lib\ant.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\servlet4.0-jsp2.3-api.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\glassfish-jspparser-5.1.0.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\jstl-impl.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\jsf-2_2\javax.faces.jar" />
     <property name="libs.jsp-compilation.classpath" value="C:\Program Files\NetBeans-21\netbeans\extide\ant\lib\ant.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\servlet4.0-jsp2.3-api.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\glassfish-jspparser-5.1.0.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\jsf-2_2\javax.faces.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\jstl-api.jar;C:\Program Files\NetBeans-21\netbeans\extide\ant\lib\ant-launcher.jar" />
     <property name="libs.javaee-api-6.0.classpath" value="C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\javaee-api-6.0.jar" />
-    <property name="javac.includesfile.binary" value="C:\projects\PAT\null1930867981" />
+    <property name="javac.includesfile.binary" value="C:\projects\PAT\null518026685" />
     <property name="libs.javaee-api-7.0.classpath" value="C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\javaee-api-7.0.jar" />
     <property name="sun.cpu.isalist" value="amd64" />
     <property name="libs.restapi.maven-pom" value="" />
@@ -323,7 +323,7 @@
     <property name="line.separator" value="&#xd;&#xa;" />
     <property name="javadoc.additionalparam" value="" />
     <property name="libs.spring-webmvc5.0.classpath" value="C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-5\spring-webmvc-5.2.9.RELEASE.jar" />
-    <property name="test.method" value="everything" />
+    <property name="test.method" value="checkLogin" />
     <property name="javac.debug" value="true" />
     <property name="libs.restlib.maven-pom" value="" />
     <property name="libs.testng.classpath" value="C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\testng-6.14.3.jar;C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\jcommander-1.78.jar" />
@@ -425,13 +425,16 @@
     <property name="libs.jsp-compiler.classpath" value="C:\Program Files\NetBeans-21\netbeans\enterprise\ant\extra\jspcompile.jar" />
     <property name="libs.javaee-endorsed-api-6.0.classpath" value="C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\javaee6-endorsed\javax.annotation.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\javaee6-endorsed\jaxb-api-osgi.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\javaee6-endorsed\webservices-api-osgi.jar" />
   </properties>
-  <testcase classname="pat.PATTest" name="everything" time="0.021" />
-  <system-out><![CDATA[Password succesfully captured
-the username is not formatted, pleaseensure that your username contains a underscoreand is no more than 5 characters in length
-password successfully captured
-Password is not correctly formatted, please ensurethat the password contains at least 8 characters, a capital Letter.a number and a special character
-Password succesfully captured
-the username is not formatted, pleaseensure that your username contains a underscoreand is no more than 5 characters in length
-]]></system-out>
+  <testcase classname="pat.PATTest" name="checkLogin" time="0.023">
+    <error message="org/opentest4j/AssertionFailedError" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: org/opentest4j/AssertionFailedError
+	at pat.PATTest.checkLogin(PATTest.java:62)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+Caused by: java.lang.ClassNotFoundException: org.opentest4j.AssertionFailedError
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+</error>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
