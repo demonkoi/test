@@ -15,7 +15,7 @@ public class PAT {
     }
 
     public static void entryScreen() {
-        login log = new login();
+        Login log = new Login();
         int option = JOptionPane.showOptionDialog(null, "Choose an option", "PAT", JOptionPane.DEFAULT_OPTION,
                 JOptionPane.INFORMATION_MESSAGE, null, optionEnter, optionEnter[0]);
         switch (option) {

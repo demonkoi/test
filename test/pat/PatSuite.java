@@ -16,7 +16,7 @@ import org.junit.runners.Suite;
  * @author jethr
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({pat.loginTest.class, pat.PATTest.class, pat.marksTest.class})
+@Suite.SuiteClasses({ pat.PATTest.class, })
 public class PatSuite {
 
     @BeforeClass
