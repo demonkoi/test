@@ -35,7 +35,7 @@ public class login {
        
         boolean userFound = false;
         try {
-            File file = new File("userDetails.txt");
+            File file = new File("s");
             Scanner sc = new Scanner(file);
             while (sc.hasNextLine()) {
                 String userData = sc.nextLine();
