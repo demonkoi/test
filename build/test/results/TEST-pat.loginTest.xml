@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="LAPTOP-NK9PUETT" name="pat.LoginTest" skipped="0" tests="1" time="0.108" timestamp="2024-04-15T19:39:23">
+<testsuite errors="1" failures="0" hostname="LAPTOP-NK9PUETT" name="pat.loginTest" skipped="0" tests="1" time="13.748" timestamp="2024-04-15T14:21:58">
   <properties>
     <property name="libs.spring-framework300.classpath" value="C:\Program Files\NetBeans-21\netbeans\platform\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-aop-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-aspects-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-beans-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-context-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-context-support-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-core-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-expression-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-instrument-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-jdbc-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-jms-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-orm-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-oxm-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-struts-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-test-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-tx-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-web-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-webmvc-3.2.18.RELEASE.jar;C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.18.RELEASE.jar" />
     <property name="javac.test.classpath" value=":build/classes:C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\junit-jupiter-api-5.6.0.jar;C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\junit-jupiter-params-5.6.0.jar;C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\junit-jupiter-engine-5.6.0.jar:C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\junit-4.13.2.jar:C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\hamcrest-core-1.3.jar" />
@@ -17,7 +17,7 @@
     <property name="libs.jsp-compilation.src" value="" />
     <property name="libs.JWSAntTasks.javadoc" value="" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner pat.LoginTest methods=megaTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\projects\PAT\build\test\results\TEST-pat.LoginTest.xml crashfile=C:\projects\PAT\build\junitvmwatcher17526603906239482929.properties propsfile=C:\projects\PAT\build\junit10266398221742107100.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner pat.loginTest methods=testCreateUser skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\projects\PAT\build\test\results\TEST-pat.loginTest.xml crashfile=C:\projects\PAT\build\junitvmwatcher16524271562197646923.properties propsfile=C:\projects\PAT\build\junit13474378364761245693.properties" />
     <property name="jdk.debug" value="release" />
     <property name="libs.spring-framework300.src" value="" />
     <property name="javadoc.use" value="true" />
@@ -197,7 +197,7 @@
     <property name="libs.jsp-compilation-syscp.classpath" value="C:\Program Files\NetBeans-21\netbeans\extide\ant\lib\ant.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\servlet4.0-jsp2.3-api.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\glassfish-jspparser-5.1.0.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\jstl-impl.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\jsf-2_2\javax.faces.jar" />
     <property name="libs.jsp-compilation.classpath" value="C:\Program Files\NetBeans-21\netbeans\extide\ant\lib\ant.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\servlet4.0-jsp2.3-api.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\glassfish-jspparser-5.1.0.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\jsf-2_2\javax.faces.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\jstl-api.jar;C:\Program Files\NetBeans-21\netbeans\extide\ant\lib\ant-launcher.jar" />
     <property name="libs.javaee-api-6.0.classpath" value="C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\javaee-api-6.0.jar" />
-    <property name="javac.includesfile.binary" value="C:\projects\PAT\null1527606055" />
+    <property name="javac.includesfile.binary" value="C:\projects\PAT\null472338011" />
     <property name="libs.javaee-api-7.0.classpath" value="C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\javaee-api-7.0.jar" />
     <property name="sun.cpu.isalist" value="amd64" />
     <property name="libs.restapi.maven-pom" value="" />
@@ -318,12 +318,12 @@
     <property name="empty.dir" value="C:\projects\PAT\build\empty" />
     <property name="libs.jakartaee-api-10.0.classpath" value="C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\jakarta.jakartaee-api-10.0.0.jar" />
     <property name="netbeans.user" value="C:\Users\jethr\AppData\Roaming\NetBeans\21" />
-    <property name="javac.includes.binary" value="C:\projects\PAT\build\test\classes\pat\LoginTest.class" />
+    <property name="javac.includes.binary" value="C:\projects\PAT\build\test\classes\pat\loginTest.class" />
     <property name="file.separator" value="\" />
     <property name="line.separator" value="&#xd;&#xa;" />
     <property name="javadoc.additionalparam" value="" />
     <property name="libs.spring-webmvc5.0.classpath" value="C:\Program Files\NetBeans-21\netbeans\java\modules\ext\spring-5\spring-webmvc-5.2.9.RELEASE.jar" />
-    <property name="test.method" value="megaTest" />
+    <property name="test.method" value="testCreateUser" />
     <property name="javac.debug" value="true" />
     <property name="libs.restlib.maven-pom" value="" />
     <property name="libs.testng.classpath" value="C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\testng-6.14.3.jar;C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\jcommander-1.78.jar" />
@@ -357,7 +357,7 @@
     <property name="libs.spring-framework500.src" value="" />
     <property name="user.properties.file" value="C:\Users\jethr\AppData\Roaming\NetBeans\21\build.properties" />
     <property name="libs.javaee-api-6.0.src" value="" />
-    <property name="javac.includes" value="pat/LoginTest.java" />
+    <property name="javac.includes" value="pat/loginTest.java" />
     <property name="netbeans.autoupdate.country" value="ZA" />
     <property name="java.class.path" value="C:\projects\PAT\build\classes;C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\junit-jupiter-api-5.6.0.jar;C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\junit-jupiter-params-5.6.0.jar;C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\junit-jupiter-engine-5.6.0.jar;C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\junit-4.13.2.jar;C:\Program Files\NetBeans-21\netbeans\platform\modules\ext\hamcrest-core-1.3.jar;C:\projects\PAT\build\test\classes;C:\Program Files\NetBeans-21\netbeans\extide\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans-21\netbeans\extide\ant\lib\ant.jar;C:\Program Files\NetBeans-21\netbeans\extide\ant\lib\ant-junit.jar;C:\Program Files\NetBeans-21\netbeans\extide\ant\lib\ant-junit4.jar" />
     <property name="libs.javaee-web-api-6.0.maven-pom" value="" />
@@ -415,7 +415,7 @@
     <property name="libs.metro.javadoc" value="C:\Program Files\NetBeans-21\netbeans\enterprise\docs\webservices-api-javadoc.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\docs\webservices-extra-javadoc.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\docs\webservices-extra-api-javadoc.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\docs\webservices-rt-javadoc.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\docs\webservices-tools-javadoc.jar" />
     <property name="libs.jakartaee-web-api-9.0.src" value="" />
     <property name="libs.jakartaee-web-api-10.0.classpath" value="C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\jakarta.jakartaee-web-api-10.0.0.jar" />
-    <property name="test.class" value="pat.LoginTest" />
+    <property name="test.class" value="pat.loginTest" />
     <property name="sun.awt.datatransfer.timeout" value="1000" />
     <property name="ant.file.type.PAT" value="file" />
     <property name="annotation.processing.run.all.processors" value="true" />
@@ -425,13 +425,16 @@
     <property name="libs.jsp-compiler.classpath" value="C:\Program Files\NetBeans-21\netbeans\enterprise\ant\extra\jspcompile.jar" />
     <property name="libs.javaee-endorsed-api-6.0.classpath" value="C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\javaee6-endorsed\javax.annotation.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\javaee6-endorsed\jaxb-api-osgi.jar;C:\Program Files\NetBeans-21\netbeans\enterprise\modules\ext\javaee6-endorsed\webservices-api-osgi.jar" />
   </properties>
-  <testcase classname="pat.LoginTest" name="megaTest" time="0.018" />
-  <system-out><![CDATA[Password succesfully captured
-the username is not formatted, pleaseensure that your username contains a underscoreand is no more than 5 characters in length
-password successfully captured
-Password is not correctly formatted, please ensurethat the password contains at least 8 characters, a capital Letter.a number and a special character
-Password succesfully captured
-the username is not formatted, pleaseensure that your username contains a underscoreand is no more than 5 characters in length
+  <testcase classname="pat.loginTest" name="testCreateUser" time="13.377">
+    <error message="Cannot invoke &quot;String.length()&quot; because &quot;this.firstname&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;String.length()&quot; because &quot;this.firstname&quot; is null
+	at pat.login.checkName(login.java:82)
+	at pat.login.setfirstname(login.java:155)
+	at pat.login.createUser(login.java:15)
+	at pat.loginTest.testCreateUser(loginTest.java:46)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+</error>
+  </testcase>
+  <system-out><![CDATA[createUser
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

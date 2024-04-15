@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import pat.Login;
+import pat.login;
 
 /**
  *
@@ -21,18 +21,30 @@ import pat.Login;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({pat.PatSuite.class})
 public class RootSuite {
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
+
+    @Before
+    public void setUp() throws Exception {
+    }
     @Test
     public void testCreateUser() {
-            Login log = new login();
+            login log = new login();
             System.out.println("call");
                // assertFalse(log.loginUser("kyleeeee","password"));
         
     }
     @Test
     public void testLogin(){
-    Login log = new login();
+        login log = new login();
         
-              
+    
+        
         assertTrue(log.loginUser("kyl_1", "Ch&&sec@ke99!"));
         
         assertTrue(log.checkUsername("kyl_1"));
@@ -44,7 +56,6 @@ public class RootSuite {
         assertFalse(log.checkPasswordComplexity("password"));
         
     }
-    public void 
 
     @After
     public void tearDown() throws Exception {
