@@ -4,14 +4,20 @@
  */
 package pat;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class PAT {
     private static final String optionEnter[] = { "Login", "Register", "Exit" };
-    
+    static JFrame frame = new JFrame();
+
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500, 500);
+        frame.setVisible(true);
+
         entryScreen();
+
     }
 
     public static void entryScreen() {
@@ -21,10 +27,11 @@ public class PAT {
         switch (option) {
             case 0:
                 String username = JOptionPane.showInputDialog("Enter your username");
-                String password = JOptionPane.showInputDialog("Enter your password");
-                if (log.loginUser(username,password)) {
+                String password = JOptionPane.showInputDialog("Eneter your password");
+                if (log.loginUser(username, password)) {
                     JOptionPane.showMessageDialog(null, "Login successful");
-                   Task task = new Task(log.getUserName(),log.getFirstName(),log.getLastName());
+                    JOptionPane.showMessageDialog(null, "Welcome to EasyKanban");
+                    Task task = new Task(log.getUserName(), log.getFirstName(), log.getLastName());
                 } else {
                     JOptionPane.showMessageDialog(null, "Login failed");
                 }
@@ -44,7 +51,8 @@ public class PAT {
                 JOptionPane.INFORMATION_MESSAGE, null, optionsTask, optionsTask[0]);
         switch (option) {
             case 0:
-              //  task t = new task(log.getUserName(), log.getPassword(), log.getFirstName(), log.getLastName());
+                // task t = new task(log.getUserName(), log.getPassword(), log.getFirstName(),
+                // log.getLastName());
                 break;
 
         }

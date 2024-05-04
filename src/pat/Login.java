@@ -19,7 +19,7 @@ public class Login {
         JOptionPane.showMessageDialog(null, registerUser());
     }
 
-    public String registerUser() {
+    public String           registerUser() {
         if (!checkUsername(userName))
             return "Username must be at least 5 characters long and contain an underscore.";
         else if (!checkPasswordComplexity(password))
