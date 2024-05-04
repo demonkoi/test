@@ -24,8 +24,7 @@ public class PAT {
                 String password = JOptionPane.showInputDialog("Enter your password");
                 if (log.loginUser(username,password)) {
                     JOptionPane.showMessageDialog(null, "Login successful");
-                  //  task task = new task(log.getUserName(), log.getPassword(), log.getFirstName(),
-                  //          log.getLastName());
+                   Task task = new Task(log.getUserName(),log.getFirstName(),log.getLastName());
                 } else {
                     JOptionPane.showMessageDialog(null, "Login failed");
                 }

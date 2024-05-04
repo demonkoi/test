@@ -31,38 +31,32 @@ public class Login {
 
     }
     //read from user file and check if user has entered username password correctly
-    public boolean loginUser(String username,String password) {
-       
-        boolean userFound = false;
+    public boolean loginUser(String userName,String password) {
         try {
             File file = new File("userDetails.txt");
             Scanner sc = new Scanner(file);
             while (sc.hasNextLine()) {
                 String userData = sc.nextLine();
                 // check if the username and password are in the file
-                if (userData.contains(username) && userData.contains(password)) {
-                    userFound = true;
+                    
                     //split usernate into data array
                     String[] data = userData.split(" ", 0);
-                    userName = data[0];
-                    password = data[1];
-                    firstname = data[2];
-                    lastname = data[3];
-                    break;
-                } else {
-                    userFound = false;
+                    if (userName.equals(data[0]) && password.equals(data[1])) {
+                    this.userName = data[0];
+                    this.password = data[1];
+                    this.firstname = data[2];
+                    this.lastname = data[3];
+                    sc.close();
+                    return true;
                 }
+                                   
             }
             sc.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-        if (userFound) {
-            return true;
-        } else {
-            return false;
-        }
+        return false;
     }
 
     // check if the username satisfies the requirements
