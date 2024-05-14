@@ -12,10 +12,7 @@ public class PAT {
     static JFrame frame = new JFrame();
 
     public static void main(String[] args) {
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
-        frame.setVisible(true);
-
+        // frame.setVisible(true);
         entryScreen();
 
     }
@@ -24,17 +21,25 @@ public class PAT {
         Login log = new Login();
         int option = JOptionPane.showOptionDialog(null, "Choose an option", "PAT", JOptionPane.DEFAULT_OPTION,
                 JOptionPane.INFORMATION_MESSAGE, null, optionEnter, optionEnter[0]);
+
+        String username;
+        String password;
+        Boolean flag = false;
         switch (option) {
             case 0:
-                String username = JOptionPane.showInputDialog("Enter your username");
-                String password = JOptionPane.showInputDialog("Eneter your password");
-                if (log.loginUser(username, password)) {
-                    JOptionPane.showMessageDialog(null, "Login successful");
-                    JOptionPane.showMessageDialog(null, "Welcome to EasyKanban");
-                    Task task = new Task(log.getUserName(), log.getFirstName(), log.getLastName());
-                } else {
-                    JOptionPane.showMessageDialog(null, "Login failed");
-                }
+                do {
+                    username = JOptionPane.showInputDialog("Enter your username");
+                    password = JOptionPane.showInputDialog("Eneter your password");
+                    flag = log.loginUser(username, password);
+                    if (flag) {
+                        JOptionPane.showMessageDialog(null, "Login successful");
+                        JOptionPane.showMessageDialog(null, "Welcome to EasyKanban");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Login failed");
+                    }
+                    System.out.println(flag);
+                    Task task = new Task(log.getUserName(), username, password);
+                } while (!flag);
                 break;
             case 1:
                 log.createUser();

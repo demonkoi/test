@@ -19,7 +19,7 @@ public class Login {
         JOptionPane.showMessageDialog(null, registerUser());
     }
 
-    public String           registerUser() {
+    public String registerUser() {
         if (!checkUsername(userName))
             return "Username must be at least 5 characters long and contain an underscore.";
         else if (!checkPasswordComplexity(password))
@@ -30,18 +30,19 @@ public class Login {
         }
 
     }
-    //read from user file and check if user has entered username password correctly
-    public boolean loginUser(String userName,String password) {
+
+    // read from user file and check if user has entered username password correctly
+    public boolean loginUser(String userName, String password) {
         try {
             File file = new File("userDetails.txt");
             Scanner sc = new Scanner(file);
             while (sc.hasNextLine()) {
                 String userData = sc.nextLine();
                 // check if the username and password are in the file
-                    
-                    //split usernate into data array
-                    String[] data = userData.split(" ", 0);
-                    if (userName.equals(data[0]) && password.equals(data[1])) {
+
+                // split usernate into data array
+                String[] data = userData.split(" ", 0);
+                if (userName.equals(data[0]) && password.equals(data[1])) {
                     this.userName = data[0];
                     this.password = data[1];
                     this.firstname = data[2];
@@ -49,11 +50,11 @@ public class Login {
                     sc.close();
                     return true;
                 }
-                                   
+
             }
             sc.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            System.out.println("invalid username or password");
             e.printStackTrace();
         }
         return false;
@@ -71,7 +72,8 @@ public class Login {
             return false;
         }
     }
-    //check name length
+
+    // check name length
     public boolean checkName() {
         if (firstname.length() > 0) {
             return true;
@@ -79,7 +81,8 @@ public class Login {
             return false;
         }
     }
-    //checks password complexity to 
+
+    // checks password complexity to
     public boolean checkPasswordComplexity(String password) {
         boolean hasLetter = false;
         boolean hasDigit = false;
@@ -90,12 +93,12 @@ public class Login {
             hasRightNum = true;
         }
         for (int i = 0; i < password.length(); i++) {
-            //check uppercase
+            // check uppercase
             int ascii = (int) password.charAt(i);
             if (Character.isUpperCase(password.charAt(i))) {
                 hasLetter = true;
             }
-            //check char
+            // check char
             if (Character.isDigit(password.charAt(i))) {
                 hasDigit = true;
             }
@@ -114,16 +117,16 @@ public class Login {
             System.out.println("password successfully captured");
             return true;
         } else {
-             System.out.println("Password is not correctly formatted, please ensure"
+            System.out.println("Password is not correctly formatted, please ensure"
                     + "that the password contains at least 8 characters, a capital Letter."
                     + "a number and a special character");
             return false;
-           }
+        }
     }
 
     // set methods
     // ------------------------------------------------------------------------------//
-    //set username
+    // set username
     public void setuserName() {
         userName = JOptionPane.showInputDialog("username", "Enter username: ");
         while (!checkUsername(userName)) {
@@ -133,7 +136,8 @@ public class Login {
         }
         JOptionPane.showMessageDialog(null, "Username successfully captured.");
     }
-    //set password
+
+    // set password
     public void setpassword() {
         password = JOptionPane.showInputDialog("Enter password: ");
         while (!checkPasswordComplexity(password)) {
@@ -143,14 +147,16 @@ public class Login {
         }
         JOptionPane.showMessageDialog(null, "password successfully captured.");
     }
-    //set firstname
+
+    // set firstname
     public void setfirstname() {
         firstname = JOptionPane.showInputDialog("Enter first name:");
         while (!checkName()) {
             firstname = JOptionPane.showInputDialog("Enter first name:");
         }
     }
-    //set lastname
+
+    // set lastname
     public void setlastname() {
         lastname = JOptionPane.showInputDialog("Enter last name:");
         while (!checkName()) {
@@ -158,7 +164,8 @@ public class Login {
         }
 
     }
-    //save user to file
+
+    // save user to file
     public void saveUser() {
         try {
             File users = new File("userDetails.txt");
@@ -197,5 +204,5 @@ public class Login {
     }
 
 }
-//--------------------------------------EOF----------------------------------------------------
-//ending comments "comment something here"
+// --------------------------------------EOF----------------------------------------------------
+// ending comments "comment something here"
