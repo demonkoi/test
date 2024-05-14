@@ -107,55 +107,6 @@ public class Task extends JFrame implements ActionListener {
                 }
             }
         });
-        tsearch = new JTextField("Input text here");
-        tsearch.setBounds(10, 130, 200, 50);
-
-        call = new JCheckBox();
-        cdone = new JCheckBox();
-        cdoing = new JCheckBox();
-        ctodo = new JCheckBox();
-
-        lall = new JLabel("All");
-        ltodo = new JLabel("To Do");
-        ldoing = new JLabel("Doing");
-        ldone = new JLabel("Done");
-
-        lall.setBounds(650, 550, 150, 50);
-        ltodo.setBounds(650, 600, 150, 50);
-        ldoing.setBounds(650, 650, 150, 50);
-        ldone.setBounds(650, 700, 150, 50);
-
-        call.setBounds(620, 560, 20, 20);
-        ctodo.setBounds(620, 610, 20, 20);
-        cdoing.setBounds(620, 660, 20, 20);
-        cdone.setBounds(620, 710, 20, 20);
-
-        call.addActionListener(e -> {
-            if (call.isSelected()) {
-                cdone.setSelected(true);
-                cdoing.setSelected(true);
-                ctodo.setSelected(true);
-            } else {
-                cdone.setSelected(false);
-                cdoing.setSelected(false);
-                ctodo.setSelected(false);
-            }
-        });
-        add(bdelete);
-        add(bsearch);
-        add(table);
-
-        add(tsearch);
-
-        add(call);
-        add(cdone);
-        add(cdoing);
-        add(ctodo);
-
-        add(lall);
-        add(ldone);
-        add(ldoing);
-        add(ltodo);
     }
 
     public void taskScreen() {
