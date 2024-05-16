@@ -1,52 +1,67 @@
 package pat;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
 
-public class Task extends JFrame implements ActionListener {
+public class Task extends JFrame {
     DefaultTableModel model;
     JTable table;;
     static ArrayList<TaskDetails> taskList = new ArrayList<TaskDetails>();
     static ArrayList<TaskDetails> taskFilter = new ArrayList<TaskDetails>();
     String userName, firstName, lastName;
-    JButton bdelete, bsearch, blongest;
-    JTextField tsearch;
+    JButton bdelete, bsearch, blongest, badduser;
+    JSpinner stime;
+    JTextField tsearch, ttaskname, tfirstname, tlastname, tdescription;
     JCheckBox cdone, cdoing, ctodo, call;
-    JLabel ldone, ldoing, ltodo, lall;
-    static String[] namestuff = { "Task Name", "Task Description", "Task Duration", "First Name", "Last Name",
-            "Task Number", "Task Status" };
-    static String[][] testdata = { { "micah", "micah", "micah", "micah", "micah", "micah", "micah" },
-            { "Connor", "Connor", "Connor", "Connor", "Connor", "Connor", "Connor" } };
+    JRadioButton rdone, rdoing, rtodo;
+    JLabel ldone, ldoing, ltodo, ldone1, ldoing1, ltodo1, lall, ltaskname, lfirstname, llastname, ldescription;
 
     public Task(String userName, String firstName, String lastName) {
+
+        loadTask(); // load task from file
+        System.out.println(taskList);
         setSize(800, 800);
         setLayout(null); // Set the layout manager to null
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
         model = new DefaultTableModel();
         table = new JTable(model);
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-
         // model.setColumnIdentifiers(namestuff);
-        Arrays.stream(namestuff).forEach(model::addColumn);
-        Arrays.stream(testdata).forEach(model::addRow);
+        // Arrays.stream(namestuff).forEach(model::addColumn);
+        // Arrays.stream(testdata).forEach(model::addRow);
 
         table.setBounds(10, 240, 600, getHeight() - 240);
-        model.addColumn(namestuff);
-        model.addRow(testdata);
-        table.setModel(model);
+
+        model.addColumn("Task Name"); // Add column headers to the table model
+        model.addColumn("Task Description");
+        model.addColumn("Task Duration");
+        model.addColumn("First Name");
+        model.addColumn("Last Name");
+        model.addColumn("Task Number");
+        model.addColumn("Task Status");
+        model.addColumn("Task ID");
+
         buttonSettings();
+        refreshTable();
 
         this.userName = userName;
         this.firstName = firstName;
@@ -55,11 +70,14 @@ public class Task extends JFrame implements ActionListener {
     }
 
     public void refreshTable() {
+        // clear the table
         model.getDataVector().removeAllElements();
+        // add the new data
         taskList.forEach(task -> {
             model.addRow(new Object[] { task.taskName, task.taskDescription, task.taskDuration, task.firstName,
-                    task.lastName, task.taskNumber, task.taskStatus });
+                    task.lastName, task.taskNumber, task.taskStatus, task.taskID });
         });
+        // refresh the table
         model.fireTableDataChanged();
     }
 
@@ -67,8 +85,140 @@ public class Task extends JFrame implements ActionListener {
 
         bdelete = new JButton("Delete");
         bsearch = new JButton("Search");
+        badduser = new JButton("Add Task");
+
+        tsearch = new JTextField("Input text here");
+        ttaskname = new JTextField();
+        tdescription = new JTextField();
+        tfirstname = new JTextField(firstName);
+        tlastname = new JTextField(lastName);
+
+        rdoing = new JRadioButton("Doing");
+        rdone = new JRadioButton("Done");
+        rtodo = new JRadioButton("To Do");
+
+        call = new JCheckBox();
+        cdone = new JCheckBox();
+        cdoing = new JCheckBox();
+        ctodo = new JCheckBox();
+
+        lall = new JLabel("All");
+        ltodo = new JLabel("To Do");
+        ldoing = new JLabel("Doing");
+        ldone = new JLabel("Done");
+        ldone1 = new JLabel("Done");
+        ldoing1 = new JLabel("Doing");
+        ltodo1 = new JLabel("To Do");
+
+        SpinnerModel sm = new SpinnerNumberModel(0, null, null, 1);
+        stime = new JSpinner(sm);
+
+        ltaskname = new JLabel("Task Name");
+        lfirstname = new JLabel("First Name");
+        llastname = new JLabel("Last Name");
+        ldescription = new JLabel("Description");
+
+        lall.setBounds(650, 550, 150, 50);
+        ltodo.setBounds(650, 600, 150, 50);
+        ldoing.setBounds(650, 650, 150, 50);
+        ldone.setBounds(650, 700, 150, 50);
+        ldone1.setBounds(250, 100, 70, 30);
+        ldoing1.setBounds(250, 140, 70, 30);
+        ltodo1.setBounds(250, 170, 70, 30);
+
+        ltaskname.setBounds(220, 30, 90, 30);
+        ldescription.setBounds(320, 30, 90, 30);
+        lfirstname.setBounds(420, 30, 90, 30);
+        llastname.setBounds(520, 30, 90, 30);
+
+        stime.setBounds(300, 140, 50, 30);
+
+        rdoing.setBounds(220, 100, 30, 30);
+        rdone.setBounds(220, 140, 30, 30);
+        rtodo.setBounds(220, 170, 30, 30);
+
         bdelete.setBounds(10, 10, 200, 50);
         bsearch.setBounds(10, 70, 200, 50);
+        badduser.setBounds(640, 10, 10, 50);
+
+        call.setBounds(620, 560, 20, 20);
+        ctodo.setBounds(620, 610, 20, 20);
+        cdoing.setBounds(620, 660, 20, 20);
+        cdone.setBounds(620, 710, 20, 20);
+
+        tsearch.setBounds(10, 130, 200, 50);
+        ttaskname.setBounds(220, 50, 90, 30);
+        tdescription.setBounds(320, 50, 90, 30);
+        tfirstname.setBounds(420, 50, 90, 30);
+        tlastname.setBounds(520, 50, 90, 30);
+
+        ButtonGroup bg = new ButtonGroup();
+        bg.add(rdoing);
+        bg.add(rdone);
+        bg.add(rtodo);
+
+        add(bdelete);
+        add(bsearch);
+        add(badduser);
+
+        add(table);
+
+        add(tsearch);
+        add(ttaskname);
+        add(tfirstname);
+        add(tlastname);
+        add(tdescription);
+        add(ttaskname);
+
+        add(call);
+        add(cdone);
+        add(cdoing);
+        add(ctodo);
+
+        add(stime);
+
+        add(rdone);
+        add(rdoing);
+        add(rtodo);
+
+        add(lall);
+        add(ldone);
+        add(ldoing);
+        add(ltodo);
+        add(ldone1);
+        add(ldoing1);
+        add(ltodo1);
+        add(ltaskname);
+        add(lfirstname);
+        add(llastname);
+        add(ldescription);
+        actionEvents();
+
+        tfirstname.setText(firstName);
+        tlastname.setText(lastName);
+    }
+
+    public void actionEvents() {
+        call.addActionListener(e -> {
+            if (call.isSelected()) {
+                cdone.setSelected(true);
+                cdoing.setSelected(true);
+                ctodo.setSelected(true);
+            } else {
+                cdone.setSelected(false);
+                cdoing.setSelected(false);
+                ctodo.setSelected(false);
+            }
+        });
+        badduser.addActionListener(e -> {
+
+            taskList.add(
+                    new TaskDetails(ttaskname.getText(), tdescription.getText(),
+                            (int) stime.getValue(),
+                            tfirstname.getText(), tlastname.getText(), taskList.size(), 0));
+            refreshTable();
+            saveTask();
+        });
         bdelete.addActionListener(e -> {
             String search = tsearch.getText();
             for (TaskDetails task : taskList) {
@@ -126,6 +276,43 @@ public class Task extends JFrame implements ActionListener {
         }
     }
 
+    public void saveTask() {
+        File f = new File("Tasks.txt");
+        try {
+            f.delete();
+            f.createNewFile();
+            FileWriter fw = new FileWriter(f);
+            for (TaskDetails task : taskList) {
+                fw.write(task.taskName + "," + task.taskDescription + "," + task.taskDuration +
+                        "," + task.firstName + "," + task.lastName + "," + task.taskNumber + "," +
+                        task.taskStatus + "," + task.taskID + "\n");
+            }
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadTask() {
+        File f = new File("Tasks.txt");
+        if (f.exists()) {
+            try {
+                Scanner sc = new Scanner(f);
+                while (sc.hasNextLine()) {
+                    String[] task = sc.nextLine().split(",");
+                    System.out.println(task[0] + "  " + task[1] + " " + task[2] + "  " + task[3] + "  " + task[4]
+                            + "   " + task[5]);
+                    TaskDetails t = new TaskDetails(task[0], task[1], Integer.parseInt(task[2]), task[3], task[4],
+                            Integer.parseInt(task[5]), Integer.parseInt(task[6]));
+                    taskList.add(t);
+                }
+                sc.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void addTask() {
         int num = Integer.parseInt(JOptionPane.showInputDialog("how many tasks you want to add?"));
         for (int i = 0; i < num; i++) {
@@ -146,6 +333,7 @@ public class Task extends JFrame implements ActionListener {
             taskList.add(task);
         }
         JOptionPane.showMessageDialog(null, "Total hours: " + returnTotalHours());
+        saveTask();
     }
 
     public boolean checkTaskDescription(String taskDescription) {
@@ -166,10 +354,6 @@ public class Task extends JFrame implements ActionListener {
         return totalhours;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent arg0) {
-
-    }
 }
 
 class TaskDetails {
