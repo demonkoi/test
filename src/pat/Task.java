@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -27,7 +26,7 @@ public class Task extends JFrame {
     static ArrayList<TaskDetails> taskList = new ArrayList<TaskDetails>();
     static ArrayList<TaskDetails> taskFilter = new ArrayList<TaskDetails>();
     String userName, firstName, lastName;
-    JButton bdelete, bsearch, blongest, badduser;
+    JButton bdelete, bsearch, blongest, badduser, blong;
     JSpinner stime;
     JTextField tsearch, ttaskname, tfirstname, tlastname, tdescription;
     JCheckBox cdone, cdoing, ctodo, call;
@@ -37,7 +36,6 @@ public class Task extends JFrame {
     public Task(String userName, String firstName, String lastName) {
 
         loadTask(); // load task from file
-        System.out.println(taskList);
         setSize(800, 800);
         setLayout(null); // Set the layout manager to null
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,7 +59,7 @@ public class Task extends JFrame {
         model.addColumn("Task ID");
 
         buttonSettings();
-        refreshTable();
+        refreshTable(taskList);
 
         this.userName = userName;
         this.firstName = firstName;
@@ -69,7 +67,7 @@ public class Task extends JFrame {
         taskScreen();
     }
 
-    public void refreshTable() {
+    public void refreshTable(ArrayList<TaskDetails> taskList) {
         // clear the table
         model.getDataVector().removeAllElements();
         // add the new data
@@ -86,6 +84,7 @@ public class Task extends JFrame {
         bdelete = new JButton("Delete");
         bsearch = new JButton("Search");
         badduser = new JButton("Add Task");
+        blong = new JButton("Longest Task");
 
         tsearch = new JTextField("Input text here");
         ttaskname = new JTextField();
@@ -139,7 +138,8 @@ public class Task extends JFrame {
 
         bdelete.setBounds(10, 10, 200, 50);
         bsearch.setBounds(10, 70, 200, 50);
-        badduser.setBounds(640, 10, 10, 50);
+        badduser.setBounds(500, 160, 100, 50);
+        blong.setBounds(500, 100, 100, 50);
 
         call.setBounds(620, 560, 20, 20);
         ctodo.setBounds(620, 610, 20, 20);
@@ -160,6 +160,7 @@ public class Task extends JFrame {
         add(bdelete);
         add(bsearch);
         add(badduser);
+        add(blong);
 
         add(table);
 
@@ -211,12 +212,19 @@ public class Task extends JFrame {
             }
         });
         badduser.addActionListener(e -> {
-
+            // get radiobutton
+            int status = 0;
+            if (rtodo.isSelected()) {
+                status = 0;
+            } else if (rdoing.isSelected()) {
+                status = 1;
+            } else if (rdone.isSelected()) {
+                status = 2;
+            }
             taskList.add(
-                    new TaskDetails(ttaskname.getText(), tdescription.getText(),
-                            (int) stime.getValue(),
-                            tfirstname.getText(), tlastname.getText(), taskList.size(), 0));
-            refreshTable();
+                    new TaskDetails(ttaskname.getText(), tdescription.getText(), (int) stime.getValue(),
+                            tfirstname.getText(), tlastname.getText(), status, 0));
+            refreshTable(taskList);
             saveTask();
         });
         bdelete.addActionListener(e -> {
@@ -226,17 +234,23 @@ public class Task extends JFrame {
                     taskList.remove(task);
                 }
             }
+            refreshTable(taskList);
+            saveTask();
         });
         bsearch.addActionListener(e -> {
-            Boolean todo, doing, done;
+            Boolean todo, doing, done, flag;
+            flag = false;
             String search = tsearch.getText();
             taskFilter.clear();
             todo = ctodo.isSelected();
             doing = cdoing.isSelected();
             done = cdone.isSelected();
-
+            if (search.equals("")) {
+                flag = true;
+                return;
+            }
             for (TaskDetails task : taskList) {
-                if (task.taskName.equals(search)) {
+                if (task.taskName.equals(search) || flag) {
                     switch (task.taskStatus) {
                         case 0:
                             if (todo) {
@@ -255,6 +269,13 @@ public class Task extends JFrame {
                             break;
                     }
                 }
+            }
+            refreshTable(taskFilter);
+        });
+
+        ctodo.addItemListener(e -> {
+            if (ctodo.isSelected()) {
+
             }
         });
     }

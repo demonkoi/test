@@ -1,2 +1,4 @@
 tname,des,3,name1,last1,0,0,tn:0:me1
 tname2,des2,7,name2,last2,1,0,tn:1:me2
+task3,kawerarn,0, name3,last3,0,0,ta:0:me3
+task3,kawerarn,0, name3,last3,0,0,ta:0:me3
