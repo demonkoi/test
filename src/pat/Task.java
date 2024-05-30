@@ -69,6 +69,9 @@ public class Task extends JFrame {
         taskScreen();
     }
 
+    public Task() {
+    }
+
     public void refreshTable(ArrayList<TaskDetails> taskList) {
         // clear the table
         model.getDataVector().removeAllElements();
@@ -378,7 +381,7 @@ public class Task extends JFrame {
                     taskNumber, taskStatus);
             taskList.add(task);
         }
-        JOptionPane.showMessageDialog(null, "Total hours: " + returnTotalHours());
+        JOptionPane.showMessageDialog(null, "Total hours: " + returnTotalHours(taskList));
         saveTask();
     }
 
@@ -392,7 +395,7 @@ public class Task extends JFrame {
         }
     }
 
-    private static int returnTotalHours() {
+    public static int returnTotalHours(ArrayList<TaskDetails> taskList) {
         int totalhours = 0;
         for (TaskDetails task : taskList) {
             totalhours += task.taskDuration;

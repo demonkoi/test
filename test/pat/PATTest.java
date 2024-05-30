@@ -26,6 +26,17 @@ public class PATTest {
         checkUserName();
         testLogin();
         addData();
+        testhours();
+        testDescription();
+        testTaskID();
+    }
+
+    @Test
+    public void testTask() {
+        addData();
+        testhours();
+        testDescription();
+        testTaskID();
     }
 
     public void addData() {
