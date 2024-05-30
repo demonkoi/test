@@ -1,5 +1,7 @@
 package pat;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,7 +28,7 @@ public class Task extends JFrame {
     static ArrayList<TaskDetails> taskList = new ArrayList<TaskDetails>();
     static ArrayList<TaskDetails> taskFilter = new ArrayList<TaskDetails>();
     String userName, firstName, lastName;
-    JButton bdelete, bsearch, blongest, badduser, blong;
+    JButton bdelete, bsearch, badduser, blong, bpressme;
     JSpinner stime;
     JTextField tsearch, ttaskname, tfirstname, tlastname, tdescription;
     JCheckBox cdone, cdoing, ctodo, call;
@@ -81,10 +83,12 @@ public class Task extends JFrame {
 
     public void buttonSettings() {
 
+        // component initilisation
         bdelete = new JButton("Delete");
         bsearch = new JButton("Search");
         badduser = new JButton("Add Task");
         blong = new JButton("Longest Task");
+        bpressme = new JButton("press me");
 
         tsearch = new JTextField("Input text here");
         ttaskname = new JTextField();
@@ -117,6 +121,8 @@ public class Task extends JFrame {
         llastname = new JLabel("Last Name");
         ldescription = new JLabel("Description");
 
+        // component bounds
+
         lall.setBounds(650, 550, 150, 50);
         ltodo.setBounds(650, 600, 150, 50);
         ldoing.setBounds(650, 650, 150, 50);
@@ -140,6 +146,7 @@ public class Task extends JFrame {
         bsearch.setBounds(10, 70, 200, 50);
         badduser.setBounds(500, 160, 100, 50);
         blong.setBounds(500, 100, 100, 50);
+        bpressme.setBounds(620, 400, 100, 50);
 
         call.setBounds(620, 560, 20, 20);
         ctodo.setBounds(620, 610, 20, 20);
@@ -152,16 +159,18 @@ public class Task extends JFrame {
         tfirstname.setBounds(420, 50, 90, 30);
         tlastname.setBounds(520, 50, 90, 30);
 
+        // button group
         ButtonGroup bg = new ButtonGroup();
         bg.add(rdoing);
         bg.add(rdone);
         bg.add(rtodo);
 
+        // add components to frame
         add(bdelete);
         add(bsearch);
         add(badduser);
         add(blong);
-
+        add(bpressme);
         add(table);
 
         add(tsearch);
@@ -195,6 +204,7 @@ public class Task extends JFrame {
         add(ldescription);
         actionEvents();
 
+        // set default values1
         tfirstname.setText(firstName);
         tlastname.setText(lastName);
     }
@@ -210,6 +220,18 @@ public class Task extends JFrame {
                 cdoing.setSelected(false);
                 ctodo.setSelected(false);
             }
+        });
+        bpressme.addActionListener(e -> {
+            JFrame frame2 = new JFrame();
+
+            frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame2.add(new Cube());
+            frame2.pack();
+            frame2.setLocationRelativeTo(null);
+            frame2.setVisible(true);
+            frame2.setPreferredSize(new Dimension(600, 600));
+            frame2.setBackground(Color.BLACK);
+
         });
         badduser.addActionListener(e -> {
             // get radiobutton
@@ -272,11 +294,14 @@ public class Task extends JFrame {
             }
             refreshTable(taskFilter);
         });
-
-        ctodo.addItemListener(e -> {
-            if (ctodo.isSelected()) {
-
+        blong.addActionListener(e -> {
+            int longest = 0;
+            for (TaskDetails task : taskList) {
+                if (task.taskDuration > longest) {
+                    longest = task.taskDuration;
+                }
             }
+            JOptionPane.showMessageDialog(null, "Longest task is " + longest + " hours");
         });
     }
 

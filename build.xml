@@ -11,6 +11,9 @@
     <!-- ... existing code ... -->
     <target name="-post-compile">
         <dependency org="org.json" name="json" rev="20210307"/>
+        <dependency org="org.openjfx" name="javafx-controls" rev="16.0.2"/>
+        <dependency org="org.openjfx" name="javafx-fxml" rev="16.0.2"/>
+        <!-- Add more JavaFX dependencies as needed -->
     </target>
     <!-- ... existing code ... -->
-</project>project>
+</project>
